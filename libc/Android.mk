@@ -1029,7 +1029,7 @@ LOCAL_MODULE_TAGS := eng debug
 include $(BUILD_SHARED_LIBRARY)
 
 endif	#!user
-
+endif
 
 # ========================================================
 include $(call all-makefiles-under,$(LOCAL_PATH))
