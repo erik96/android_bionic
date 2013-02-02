@@ -627,6 +627,7 @@ ifeq ($(TARGET_ARCH),arm)
   endif
   ifeq ($(TARGET_CORTEX_CACHE_LINE_32),true)
     libc_common_cflags += -DCORTEX_CACHE_LINE_32
+  endif
 endif # !arm
 
 ifeq ($(TARGET_ARCH),x86)
