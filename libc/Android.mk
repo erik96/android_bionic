@@ -185,6 +185,7 @@ libc_common_src_files := \
 	string/strcasecmp.c \
 	string/strcasestr.c \
 	string/strcat.c \
+	string/strchr.c \
 	string/strcoll.c \
 	string/strcspn.c \
 	string/strdup.c \
