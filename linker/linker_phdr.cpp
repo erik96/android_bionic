@@ -322,9 +322,11 @@ bool ElfReader::ReserveAddressSpace() {
 
   uint8_t* addr = reinterpret_cast<uint8_t*>(min_vaddr);
   int mmap_flags = MAP_PRIVATE | MAP_ANONYMOUS;
-  if (required_base_ != 0)
-	 mmap_flags |= MAP_FIXED;
-  void* start = mmap((void*)required_base_, load_size_, PROT_NONE, mmap_flags, -1, 0);
+  if (required_base_ != 0) {
+    mmap_flags |= MAP_FIXED;
+    addr = (uint8_t*) required_base_;
+  }
+   void* start = mmap(addr, load_size_, PROT_NONE, mmap_flags, -1, 0);
   if (start == MAP_FAILED) {
     DL_ERR("couldn't reserve %d bytes of address space for \"%s\"", load_size_, name_);
     return false;
